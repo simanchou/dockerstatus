@@ -1,0 +1,6 @@
+dockerAPI: tcp://192.168.50.40:2375
+gateway: 192.168.50.40:9091 # Set the gateway ip and port.
+interval: 15 # Set the interval to every 15 seconds. Default is every 1 minute.
+job: docker-status-check
+group: 测试-siman
+env: 生产
