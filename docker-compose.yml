@@ -1,6 +1,6 @@
 version: '2'
 services:
-  nginx-status-exporter:
+  docker-status-exporter:
     image: simanchou/docker_status_exporter:v0.1
     volumes:
       - ./conf.yml:/opt/app/conf.yml
