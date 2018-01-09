@@ -1,0 +1,9 @@
+version: '2'
+services:
+  nginx-status-exporter:
+    image: simanchou/docker_status_exporter:v0.1
+    volumes:
+      - ./conf.yml:/opt/app/conf.yml
+      - ./statusCheck.py:/opt/statusCheck.py
+    network_mode: "host"
+    restart: always
