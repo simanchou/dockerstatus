@@ -3,6 +3,7 @@ services:
   docker-status-exporter:
     image: simanchou/docker_status_exporter:v0.1
     volumes:
+      - /var/run:/var/run:ro
       - ./conf.yml:/opt/app/conf.yml
       - ./statusCheck.py:/opt/app/statusCheck.py
     network_mode: "host"
