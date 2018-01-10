@@ -53,11 +53,9 @@ def exportToGateway(gateway, job, group, instance, host, env):
     data = ""
 
     for k, v in getDockerStatus().items():
-        #data += "docker_status{} {}\n".format("{}state=\"{}\"{}".format("{", k, "}"), v[0])
         if v[0]:
             for name in v[1]:
                 data += "docker_status{} {}\n".format("{}status=\"{}\",containername=\"{}\"{}".format("{", k, name, "}"), 1)
-                #data += "docker_status_{}{} {}\n".format(k, "{}containername=\"{}\"{}".format("{", name, "}"), 1)
 
     r = requests.put(gwUrl, data=data)
     print(data)
@@ -67,7 +65,6 @@ def exportToGateway(gateway, job, group, instance, host, env):
 
 if __name__ == "__main__":
     #print(getDockerStatus())
-
 
     conf = getConf()
 
@@ -91,6 +88,3 @@ if __name__ == "__main__":
         exportToGateway(gateway, job, group, instance, host, env)
         print("Push to gateway successful at {}".format(time.asctime()))
         time.sleep(interval)
-
-
-
